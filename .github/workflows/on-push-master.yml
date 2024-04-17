@@ -9,6 +9,9 @@ on:
 jobs:
   echo:
     runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url: url
     steps:
       - name: Echo the trigger name
         run: echo "The trigger name is ${{ github.event_name }}"
