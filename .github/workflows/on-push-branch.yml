@@ -1,0 +1,15 @@
+name: Pipeline branch
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+on:
+  pull_request:
+    types: [opened, synchronize, labeled]
+    branches:
+      - master
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo the trigger name
+        run: echo "The trigger name is ${{ github.event_name }}"

@@ -1,0 +1,14 @@
+name: Pipeline development and production
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo the trigger name
+        run: echo "The trigger name is ${{ github.event_name }}"
